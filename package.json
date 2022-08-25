@@ -1,7 +1,7 @@
 {
-  "name": "gelato-relayer",
+  "name": "gelato-docs-examples",
   "version": "0.0.1",
-  "description": "Gelato Relayer contracts and tests",
+  "description": "Gelato Relay SDK example code",
   "scripts": {
     "build": "yarn install && yarn compile && npx tsc",
     "clean": "yarn hardhat clean && rm -rf dist",
@@ -18,11 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gelatodigital/relay-contracts.git"
+    "url": "git+https://github.com/gelatodigital/relay-docs-examples.git"
   },
   "license": "ISC",
   "devDependencies": {
-    "@gelatonetwork/relayer-context": "0.1.7",
     "@nomicfoundation/hardhat-network-helpers": "1.0.4",
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
     "@nomiclabs/hardhat-waffle": "2.0.3",
