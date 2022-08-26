@@ -1,23 +1,25 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.16;
 
-import "@openzeppelin/contracts/metatx/ERC2771Context.sol";
+import {
+    RelayerContextERC2771
+} from "@gelatonetwork/relayer-context/contracts/RelayerContextERC2771.sol";
 
-contract Counter is ERC2771Context {
+contract Counter is RelayerContextERC2771 {
     mapping(address => uint256) public counter;
 
     event IncrementCounter(uint256 indexed by);
 
     //solhint-disable-next-line no-empty-blocks
-    constructor(address trustedForwarder) ERC2771Context(trustedForwarder) {}
+    constructor(address relayer) RelayerContextERC2771(relayer) {}
 
-    function incrementCounter(uint256 _by) external {
-        require(
-            isTrustedForwarder(msg.sender),
-            "Counter: Only callable by Gelato Relay!"
-        );
+    //solhint-disable-next-line no-empty-blocks
+    receive() external payable {}
+
+    function incrementCounter(uint256 _by) external onlyRelayer {
         counter[_msgSender()] += _by;
         emit IncrementCounter(_by);
+        _uncheckedTransferToFeeCollectorUncapped();
     }
 
     function current() external view returns (uint256) {
