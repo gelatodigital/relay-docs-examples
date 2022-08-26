@@ -14,6 +14,7 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 
   await deploy("Counter", {
     from: deployer,
+    proxy: true,
     args: [relayAddress],
     log: true,
   });
