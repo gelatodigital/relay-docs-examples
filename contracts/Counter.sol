@@ -17,9 +17,12 @@ contract Counter is RelayerContextERC2771 {
     receive() external payable {}
 
     function incrementCounter(uint256 _by) external onlyRelayer {
+        // payment
+        _uncheckedTransferToFeeCollectorUncapped();
+
+        // logic
         counter[_msgSender()] += _by;
         emit IncrementCounter(_by);
-        _uncheckedTransferToFeeCollectorUncapped();
     }
 
     function current() external view returns (uint256) {
