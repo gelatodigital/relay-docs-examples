@@ -66,6 +66,11 @@ const config: HardhatUserConfig = {
       chainId: 5,
       url: `https://eth-goerli.alchemyapi.io/v2/${ALCHEMY_ID}`,
     },
+    arbitrumGoerli: {
+      accounts: DEV_DEPLOYER ? [DEV_DEPLOYER] : [],
+      chainId: 421613,
+      url: `https://arb-goerli.g.alchemy.com/v2/${ALCHEMY_ID}`,
+    },
     kovan: {
       accounts: DEV_DEPLOYER ? [DEV_DEPLOYER] : [],
       chainId: 42,

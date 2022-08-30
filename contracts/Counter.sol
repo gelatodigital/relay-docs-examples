@@ -2,30 +2,27 @@
 pragma solidity 0.8.16;
 
 import {
-    RelayerContextERC2771
-} from "@gelatonetwork/relayer-context/contracts/RelayerContextERC2771.sol";
+    RelayerContext
+} from "@gelatonetwork/relayer-context/contracts/RelayerContext.sol";
 
-contract Counter is RelayerContextERC2771 {
-    mapping(address => uint256) public counter;
+contract Counter is RelayerContext {
+    uint256 public count;
 
     event IncrementCounter(uint256 indexed by);
 
     //solhint-disable-next-line no-empty-blocks
-    constructor(address relayer) RelayerContextERC2771(relayer) {}
-
-    //solhint-disable-next-line no-empty-blocks
-    receive() external payable {}
+    constructor(address relayer) RelayerContext(relayer) {}
 
     function incrementCounter(uint256 _by) external onlyRelayer {
         // payment
         _uncheckedTransferToFeeCollectorUncapped();
 
         // logic
-        counter[_msgSender()] += _by;
+        count += _by;
         emit IncrementCounter(_by);
     }
 
     function current() external view returns (uint256) {
-        return counter[_msgSender()];
+        return count;
     }
 }

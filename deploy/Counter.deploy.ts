@@ -14,15 +14,17 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 
   await deploy("Counter", {
     from: deployer,
-    proxy: true,
+    proxy: {
+      proxyContract: "EIP173ProxyWithReceive",
+    },
     args: [relayAddress],
     log: true,
   });
 };
 
-// func.skip = async (hre: HardhatRuntimeEnvironment) => {
-//   return hre.network.name !== "hardhat";
-// };
+func.skip = async (hre: HardhatRuntimeEnvironment) => {
+  return hre.network.name !== "hardhat";
+};
 
 func.tags = ["Counter"];
 
