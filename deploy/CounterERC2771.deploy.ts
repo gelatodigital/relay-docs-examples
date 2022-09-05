@@ -15,13 +15,13 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
       process.exit(1);
     }
     console.log(
-      `Deploying Counter to ${hre.network.name}. Hit ctrl + c to abort`
+      `Deploying CounterERC2771 to ${hre.network.name}. Hit ctrl + c to abort`
     );
     await sleep(5000);
   }
   const relayAddress = "0xaBcC9b596420A9E9172FD5938620E265a0f9Df92";
 
-  await deploy("Counter", {
+  await deploy("CounterERC2771", {
     from: deployer,
     proxy: {
       proxyContract: "EIP173ProxyWithReceive",
