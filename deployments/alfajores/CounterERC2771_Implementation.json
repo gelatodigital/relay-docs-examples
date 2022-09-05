@@ -1,0 +1,158 @@
+{
+  "address": "0xF99c73455a92Bd88FD18726De1869060943D0a7f",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "trustedForwarder",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_msgSender",
+          "type": "address"
+        }
+      ],
+      "name": "IncrementContextCounter",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "contextCounter",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_msgSender",
+          "type": "address"
+        }
+      ],
+      "name": "currentContextCounter",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "incrementContext",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "forwarder",
+          "type": "address"
+        }
+      ],
+      "name": "isTrustedForwarder",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x2331b781fe376e6090df9cd3394f846f88fad624bd7bdfade91b4c4a5ce28ec9",
+  "receipt": {
+    "to": null,
+    "from": "0xa0B2F93e4ef04de51a91bcBc494c04E55F8ff6EB",
+    "contractAddress": "0xF99c73455a92Bd88FD18726De1869060943D0a7f",
+    "transactionIndex": 0,
+    "gasUsed": "259648",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x0fe9c5d8fc45086157815fa62d378597ef78e4a755ae2b86e38b29f0697ca007",
+    "transactionHash": "0x2331b781fe376e6090df9cd3394f846f88fad624bd7bdfade91b4c4a5ce28ec9",
+    "logs": [],
+    "blockNumber": 13403838,
+    "cumulativeGasUsed": "259648",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xaBcC9b596420A9E9172FD5938620E265a0f9Df92"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "c0062b00c137591317b7f53c6bb14698",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.16+commit.07a7930e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"trustedForwarder\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_msgSender\",\"type\":\"address\"}],\"name\":\"IncrementContextCounter\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"contextCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_msgSender\",\"type\":\"address\"}],\"name\":\"currentContextCounter\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"incrementContext\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"forwarder\",\"type\":\"address\"}],\"name\":\"isTrustedForwarder\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/CounterERC2771.sol\":\"CounterERC2771\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":999999},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/metatx/ERC2771Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v4.7.0) (metatx/ERC2771Context.sol)\\n\\npragma solidity ^0.8.9;\\n\\nimport \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Context variant with ERC2771 support.\\n */\\nabstract contract ERC2771Context is Context {\\n    /// @custom:oz-upgrades-unsafe-allow state-variable-immutable\\n    address private immutable _trustedForwarder;\\n\\n    /// @custom:oz-upgrades-unsafe-allow constructor\\n    constructor(address trustedForwarder) {\\n        _trustedForwarder = trustedForwarder;\\n    }\\n\\n    function isTrustedForwarder(address forwarder) public view virtual returns (bool) {\\n        return forwarder == _trustedForwarder;\\n    }\\n\\n    function _msgSender() internal view virtual override returns (address sender) {\\n        if (isTrustedForwarder(msg.sender)) {\\n            // The assembly code is more direct than the Solidity version using `abi.decode`.\\n            /// @solidity memory-safe-assembly\\n            assembly {\\n                sender := shr(96, calldataload(sub(calldatasize(), 20)))\\n            }\\n        } else {\\n            return super._msgSender();\\n        }\\n    }\\n\\n    function _msgData() internal view virtual override returns (bytes calldata) {\\n        if (isTrustedForwarder(msg.sender)) {\\n            return msg.data[:msg.data.length - 20];\\n        } else {\\n            return super._msgData();\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0xb6a3e264c7fc4ec11d244561232b0f49dbccc75ce3d14e5f0181cf134fa6db29\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts v4.4.1 (utils/Context.sol)\\n\\npragma solidity ^0.8.0;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n}\\n\",\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\"},\"contracts/CounterERC2771.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity 0.8.16;\\n\\nimport {\\n    ERC2771Context\\n} from \\\"@openzeppelin/contracts/metatx/ERC2771Context.sol\\\";\\n\\ncontract CounterERC2771 is ERC2771Context {\\n    mapping(address => uint256) public contextCounter;\\n\\n    event IncrementContextCounter(address _msgSender);\\n\\n    modifier onlyTrustedForwarder() {\\n        require(\\n            isTrustedForwarder(msg.sender),\\n            \\\"Only callable by Trusted Forwarder\\\"\\n        );\\n        _;\\n    }\\n\\n    //solhint-disable-next-line no-empty-blocks\\n    constructor(address trustedForwarder) ERC2771Context(trustedForwarder) {}\\n\\n    function incrementContext() external onlyTrustedForwarder {\\n        address _msgSender = _msgSender();\\n\\n        contextCounter[_msgSender]++;\\n        emit IncrementContextCounter(_msgSender);\\n    }\\n\\n    function currentContextCounter(address _msgSender)\\n        external\\n        view\\n        returns (uint256)\\n    {\\n        return contextCounter[_msgSender];\\n    }\\n}\\n\",\"keccak256\":\"0x55cffafdac807cb2b1859b801525ab9326287805254242cbb1c85895b136fda5\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60a060405234801561001057600080fd5b5060405161045238038061045283398101604081905261002f91610040565b6001600160a01b0316608052610070565b60006020828403121561005257600080fd5b81516001600160a01b038116811461006957600080fd5b9392505050565b6080516103ba6100986000396000818160aa01528181610123015261027d01526103ba6000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80631153ca2514610051578063572b6c051461009a57806382b76168146100f7578063f69c0ac114610117575b600080fd5b61008761005f3660046102e8565b73ffffffffffffffffffffffffffffffffffffffff1660009081526020819052604090205490565b6040519081526020015b60405180910390f35b6100e76100a83660046102e8565b7f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff90811691161490565b6040519015158152602001610091565b6100876101053660046102e8565b60006020819052908152604090205481565b61011f610121565b005b7f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff1633146101ea576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602260248201527f4f6e6c792063616c6c61626c65206279205472757374656420466f727761726460448201527f6572000000000000000000000000000000000000000000000000000000000000606482015260840160405180910390fd5b60006101f4610279565b73ffffffffffffffffffffffffffffffffffffffff8116600090815260208190526040812080549293509061022883610325565b909155505060405173ffffffffffffffffffffffffffffffffffffffff821681527fea2bfe80062c6394f8f8d5804cafdf4b2ff1c2b5feefccbb11233dc843632d0a9060200160405180910390a150565b60007f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff1633036102e357507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffec36013560601c90565b503390565b6000602082840312156102fa57600080fd5b813573ffffffffffffffffffffffffffffffffffffffff8116811461031e57600080fd5b9392505050565b60007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff820361037d577f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b506001019056fea2646970667358221220988e400ebb00bc983f199de1a8a982f2f3b44db1f267486b32d26cb79b04c2ce64736f6c63430008100033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80631153ca2514610051578063572b6c051461009a57806382b76168146100f7578063f69c0ac114610117575b600080fd5b61008761005f3660046102e8565b73ffffffffffffffffffffffffffffffffffffffff1660009081526020819052604090205490565b6040519081526020015b60405180910390f35b6100e76100a83660046102e8565b7f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff90811691161490565b6040519015158152602001610091565b6100876101053660046102e8565b60006020819052908152604090205481565b61011f610121565b005b7f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff1633146101ea576040517f08c379a000000000000000000000000000000000000000000000000000000000815260206004820152602260248201527f4f6e6c792063616c6c61626c65206279205472757374656420466f727761726460448201527f6572000000000000000000000000000000000000000000000000000000000000606482015260840160405180910390fd5b60006101f4610279565b73ffffffffffffffffffffffffffffffffffffffff8116600090815260208190526040812080549293509061022883610325565b909155505060405173ffffffffffffffffffffffffffffffffffffffff821681527fea2bfe80062c6394f8f8d5804cafdf4b2ff1c2b5feefccbb11233dc843632d0a9060200160405180910390a150565b60007f000000000000000000000000000000000000000000000000000000000000000073ffffffffffffffffffffffffffffffffffffffff1633036102e357507fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffec36013560601c90565b503390565b6000602082840312156102fa57600080fd5b813573ffffffffffffffffffffffffffffffffffffffff8116811461031e57600080fd5b9392505050565b60007fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff820361037d577f4e487b7100000000000000000000000000000000000000000000000000000000600052601160045260246000fd5b506001019056fea2646970667358221220988e400ebb00bc983f199de1a8a982f2f3b44db1f267486b32d26cb79b04c2ce64736f6c63430008100033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 110,
+        "contract": "contracts/CounterERC2771.sol:CounterERC2771",
+        "label": "contextCounter",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_address,t_uint256)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
