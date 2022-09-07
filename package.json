@@ -22,8 +22,8 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@gelatonetwork/relayer-context": "0.1.7",
-    "@nomicfoundation/hardhat-network-helpers": "1.0.4",
+    "@gelatonetwork/relay-context": "0.1.1",
+    "@nomicfoundation/hardhat-network-helpers": "1.0.6",
     "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
     "@nomiclabs/hardhat-waffle": "2.0.3",
     "@openzeppelin/contracts": "4.7.3",

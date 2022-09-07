@@ -2,20 +2,17 @@
 pragma solidity 0.8.16;
 
 import {
-    RelayerContext
-} from "@gelatonetwork/relayer-context/contracts/RelayerContext.sol";
+    GelatoRelayContext
+} from "@gelatonetwork/relay-context/contracts/GelatoRelayContext.sol";
 
-contract Counter is RelayerContext {
+contract Counter is GelatoRelayContext {
     uint256 public counter;
 
     event IncrementCounter();
 
-    //solhint-disable-next-line no-empty-blocks
-    constructor(address relayer) RelayerContext(relayer) {}
-
-    function increment() external onlyRelayer {
-        // payment
-        _uncheckedTransferToFeeCollectorUncapped();
+    function increment() external onlyGelatoRelay {
+        // payment to Gelato
+        _transferRelayFee();
 
         // logic
         counter += 1;

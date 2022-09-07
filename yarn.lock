@@ -1246,10 +1246,10 @@
     "@ethersproject/properties" "^5.7.0"
     "@ethersproject/strings" "^5.7.0"
 
-"@gelatonetwork/relayer-context@0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@gelatonetwork/relayer-context/-/relayer-context-0.1.7.tgz#58db447678bed98e339aaee29f3ff389f3f54a61"
-  integrity sha512-570sMOt+Ky/8qCQOMVGICcIGfLz2Xnp1i37rzxJSxxvF658mI+Hcw/gN4rzwcOshPgpUy02N7z+bhcOJdf+XHg==
+"@gelatonetwork/relay-context@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@gelatonetwork/relay-context/-/relay-context-0.1.1.tgz#a73189c03e7c9a22a8a73eb9d169902784797b5c"
+  integrity sha512-OQbqvoCvFMbkYDigBNnfMhBUgDb0/AL0XHqnBPDmTWXWKvCT2uUlTw4GNlITUvlAQm47wO5OxwtRcq39wmkooA==
   dependencies:
     "@openzeppelin/contracts" "4.7.3"
 
@@ -1337,10 +1337,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@nomicfoundation/hardhat-network-helpers@1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-network-helpers/-/hardhat-network-helpers-1.0.4.tgz#265e807818b727c50dc6f115ee951e5c25cfe67f"
-  integrity sha512-bgS1HtuPZxOzEsQsF6jxfoOMQXKRlddsoJPT8dBNH1Pgpv9Y8AUQ3ecQk4ujAw9EOdTE1xAL4u7S6Gu4p3DO+Q==
+"@nomicfoundation/hardhat-network-helpers@1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-network-helpers/-/hardhat-network-helpers-1.0.6.tgz#5e2026ddde5ca539f70a2bf498528afd08bd0827"
+  integrity sha512-a35iVD4ycF6AoTfllAnKm96IPIzzHpgKX/ep4oKc2bsUKFfMlacWdyntgC/7d5blyCTXfFssgNAvXDZfzNWVGQ==
   dependencies:
     ethereumjs-util "^7.1.4"
 
