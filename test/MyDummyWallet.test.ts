@@ -17,6 +17,9 @@ import {
 } from "./constants";
 import { Contract, Signer } from "ethers";
 
+// use the helper function: getGelatoAddress
+// to retreive the Gelato Diamond address on your forked network
+// for impersonation
 const HARDHAT_FORK = "polygon";
 const gelato = getGelatoAddress(HARDHAT_FORK);
 
@@ -62,7 +65,7 @@ describe("Test MyDummyWallet Smart Contract", function () {
       gelatoSigner
     );
 
-    // connect to target MyDummyWallet and feeToken contracv
+    // connect to target MyDummyWallet and feeToken contract
     myDummyWallet = await hre.ethers.getContract("MyDummyWallet");
     mockERC20 = await hre.ethers.getContract("MockERC20");
     target = myDummyWallet.address;
