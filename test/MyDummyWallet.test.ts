@@ -50,7 +50,10 @@ describe("Test MyDummyWallet Smart Contract", function () {
     // impersonate Gelato Diamond and fund it
     await impersonateAccount(gelato);
     gelatoSigner = await ethers.getSigner(gelato);
-    await setBalance(await gelatoSigner.getAddress(), INIT_BALANCE);
+    await setBalance(
+      await gelatoSigner.getAddress(),
+      ethers.utils.parseEther("1")
+    );
 
     // connect to Gelato Relay via Gelato Diamond
     gelatoRelay = await new ethers.Contract(
@@ -92,7 +95,6 @@ describe("Test MyDummyWallet Smart Contract", function () {
     await expect(
       gelatoRelay.callWithSyncFee(target, data, feeToken, FEE, TASK_ID)
     )
-      .to.emit(gelatoRelay, "LogCallWithSyncFee")
       .and.to.emit(myDummyWallet, "LogSendToFriend")
       .withArgs(VITALIK, AMOUNT_TO_SEND);
 
