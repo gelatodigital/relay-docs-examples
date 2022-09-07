@@ -23,12 +23,18 @@ const gelato = getGelatoAddress(HARDHAT_FORK);
 const TASK_ID = ethers.utils.keccak256("0xdeadbeef");
 
 describe("Test MyDummyWallet Smart Contract", function () {
+  // the Gelato Diamond always calls the Relay contract, so
+  // this signer will be impersonating the Gelato Diamond
   let gelatoSigner: Signer;
 
+  // deploying a mock ERC-20 token for testing purposes
   let mockERC20: MockERC20;
   let myDummyWallet: MyDummyWallet;
+
+  // connecting to the GelatoRelay contract on the local forked network
   let gelatoRelay: Contract;
 
+  // the target address, and what feeToken to pay in
   let target: string;
   let feeToken: string;
 
@@ -38,6 +44,7 @@ describe("Test MyDummyWallet Smart Contract", function () {
       process.exit(1);
     }
 
+    // deploy all contracts locally using deploy scripts in deploy/
     await deployments.fixture();
 
     // impersonate Gelato Diamond and fund it
@@ -52,9 +59,9 @@ describe("Test MyDummyWallet Smart Contract", function () {
       gelatoSigner
     );
 
+    // connect to target MyDummyWallet and feeToken contracv
     myDummyWallet = await hre.ethers.getContract("MyDummyWallet");
     mockERC20 = await hre.ethers.getContract("MockERC20");
-
     target = myDummyWallet.address;
     feeToken = mockERC20.address;
 
@@ -73,12 +80,15 @@ describe("Test MyDummyWallet Smart Contract", function () {
   });
 
   it("#2: MyDummyWallet.sendToFriend via GelatoRelay transfers ERC20 tokens and pays fee", async () => {
+    // encode the payload to send to callWithSyncFee on GelatoRelay
     const data = myDummyWallet.interface.encodeFunctionData("sendToFriend", [
       feeToken,
       VITALIK,
       AMOUNT_TO_SEND,
     ]);
 
+    // make sure the forwarded call via GelatoRelay emits an event
+    // on GelatoRelay itself and on the target contract
     await expect(
       gelatoRelay.callWithSyncFee(target, data, feeToken, FEE, TASK_ID)
     )
