@@ -19,21 +19,19 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
     );
     await sleep(5000);
   }
-  const relayAddress = "0xaBcC9b596420A9E9172FD5938620E265a0f9Df92";
 
   await deploy("Counter", {
     from: deployer,
     proxy: {
       proxyContract: "EIP173ProxyWithReceive",
     },
-    args: [relayAddress],
     log: true,
   });
 };
 
-func.skip = async (hre: HardhatRuntimeEnvironment) => {
-  return hre.network.name !== "hardhat";
-};
+// func.skip = async (hre: HardhatRuntimeEnvironment) => {
+//   return hre.network.name !== "hardhat";
+// };
 
 func.tags = ["Counter"];
 
