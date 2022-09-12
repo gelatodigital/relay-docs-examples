@@ -49,6 +49,11 @@ const config: HardhatUserConfig = {
       chainId: 56,
       url: "https://bsc-dataseed1.ninicoin.io/",
     },
+    ethereum: {
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
+      chainId: 1,
+      url: `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_ID}`,
+    },
     evmos: {
       accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 9001,
@@ -78,11 +83,6 @@ const config: HardhatUserConfig = {
       accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 42,
       url: `https://eth-kovan.alchemyapi.io/v2/${ALCHEMY_ID}`,
-    },
-    mainnet: {
-      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
-      chainId: 1,
-      url: `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_ID}`,
     },
     polygon: {
       accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
