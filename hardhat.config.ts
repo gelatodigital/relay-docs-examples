@@ -103,6 +103,11 @@ const config: HardhatUserConfig = {
       chainId: 1284,
       accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
     },
+    moonbeamAlpha: {
+      url: "https://moonbeam-alpha.api.onfinality.io/public",
+      chainId: 1287,
+      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+    },
     moonriver: {
       url: "https://moonriver-rpc.dwellir.com",
       chainId: 1285,

@@ -17,8 +17,9 @@ import {
 contract MyDummyWallet is GelatoRelayContext {
     // emitting an event for testing purposes
     event LogSendToFriend(address indexed to, uint256 amount);
+    event LogBalance(uint256 indexed balance);
 
-    // this function uses this contract's mock ERC-20 balance to send
+    // this function uses this contract's token balance to send
     // an _amount of tokens to the _to address
     function sendToFriend(
         address _token,
@@ -36,5 +37,9 @@ contract MyDummyWallet is GelatoRelayContext {
         SafeERC20.safeTransfer(IERC20(_token), _to, _amount);
 
         emit LogSendToFriend(_to, _amount);
+    }
+
+    function balanceOf() external {
+        emit LogBalance(address(this).balance);
     }
 }
