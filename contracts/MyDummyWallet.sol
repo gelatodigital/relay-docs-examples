@@ -39,7 +39,16 @@ contract MyDummyWallet is GelatoRelayContext {
         emit LogSendToFriend(_to, _amount);
     }
 
-    function balanceOf() external {
+    // this functions emits the current balance of the wallet contract
+    // in an event that we can check on-chain.
+    function balanceOf() external onlyGelatoRelay {
+        // Payment to Gelato
+        // NOTE: be very careful here!
+        // if you do not use the onlyGelatoRelay modifier,
+        // anyone could encode themselves as the fee collector
+        // in the low-level data and drain tokens from this contract.
+        _transferRelayFee();
+
         emit LogBalance(address(this).balance);
     }
 }
