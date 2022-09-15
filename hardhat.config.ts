@@ -10,7 +10,6 @@ import "hardhat-deploy";
 import * as dotenv from "dotenv";
 dotenv.config({ path: __dirname + "/.env" });
 
-// const WALLET_DEPLOYER_PK = process.env.WALLET_DEPLOYER_PK;
 const WALLET_DEPLOYER_PK = process.env.WALLET_DEPLOYER_PK;
 const ALCHEMY_ID = process.env.ALCHEMY_ID;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;

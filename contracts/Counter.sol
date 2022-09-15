@@ -14,12 +14,7 @@ contract Counter is GelatoRelayContext {
         // payment to Gelato
         _transferRelayFee();
 
-        // logic
         counter += 1;
         emit IncrementCounter();
-    }
-
-    function currentCounter() external view returns (uint256) {
-        return counter;
     }
 }

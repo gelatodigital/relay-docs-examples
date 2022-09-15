@@ -19,7 +19,7 @@ contract MyDummyWallet is GelatoRelayContext {
     event LogSendToFriend(address indexed to, uint256 amount);
     event LogBalance(uint256 indexed balance);
 
-    // this function uses this contract's token balance to send
+    // this function uses this contract's ERC-20 token balance to send
     // an _amount of tokens to the _to address
     function sendToFriend(
         address _token,
@@ -41,7 +41,7 @@ contract MyDummyWallet is GelatoRelayContext {
 
     // this functions emits the current balance of the wallet contract
     // in an event that we can check on-chain.
-    function balanceOf() external onlyGelatoRelay {
+    function emitBalance() external onlyGelatoRelay {
         // Payment to Gelato
         // NOTE: be very careful here!
         // if you do not use the onlyGelatoRelay modifier,
