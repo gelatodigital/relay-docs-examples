@@ -5,16 +5,21 @@ import {
     GelatoRelayContext
 } from "@gelatonetwork/relay-context/contracts/GelatoRelayContext.sol";
 
-import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import {Address} from "@openzeppelin/contracts/utils/Address.sol";
 import {
+    IERC20,
     SafeERC20
 } from "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import {NATIVE_TOKEN} from "./constants/Tokens.sol";
 
 // Importing GelatoRelayContext gives access to:
 // 1. onlyGelatoRelayModifier
 // 2. payment methods, i.e. _transferRelayFee
 // 3. _getFeeCollector(), _getFeeToken(), _getFee()
 contract MyDummyWallet is GelatoRelayContext {
+    using Address for address payable;
+    using SafeERC20 for IERC20;
+
     // emitting an event for testing purposes
     event LogSendToFriend(address indexed to, uint256 amount);
     event LogBalance(uint256 indexed balance);
@@ -33,8 +38,9 @@ contract MyDummyWallet is GelatoRelayContext {
         // in the low-level data and drain tokens from this contract.
         _transferRelayFee();
 
-        // transfer of ERC-20 tokens
-        SafeERC20.safeTransfer(IERC20(_token), _to, _amount);
+        // transfer of tokens
+        if (_token == NATIVE_TOKEN) payable(_to).sendValue(_amount);
+        else IERC20(_token).safeTransfer(_to, _amount);
 
         emit LogSendToFriend(_to, _amount);
     }

@@ -28,10 +28,13 @@ const buildRequest = async (network: string): Promise<SyncFeeRequest> => {
   // // sendToFriend arguments
   const friend = "0xDA9644C2c2B6F50426EaBa9ce1B853e99f2D4fCa";
   const amountToSend = ethers.utils.parseUnits("0.01");
-  const feeToken = "0xB4FBF271143F4FBf7B91A5ded31805e42b2208d6";
+  const feeToken = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 
   // connect to the blockchain via a provider
-  const provider = new ethers.providers.AlchemyProvider("goerli", ALCHEMY_ID);
+  if (network == "mumbai") {
+    network = "maticmum";
+  }
+  const provider = new ethers.providers.AlchemyProvider(network, ALCHEMY_ID);
 
   // generate the target payload
   const contract = new ethers.Contract(myDummyWallet, abi, provider);

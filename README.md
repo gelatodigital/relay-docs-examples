@@ -51,3 +51,5 @@ This contract inherits `GelatoRelayContext` to benefit from the `_transferRelayF
 This counter contract has one function `increment`, which we shall call using the Gelato Relay SDK! In this case, we are checking that the `IncrementCounter` event is emitted on-chain after we submit our relay request.
 
 ### Typescript
+
+- TODO after diamond upgrades
