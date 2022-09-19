@@ -10,7 +10,7 @@ import "hardhat-deploy";
 import * as dotenv from "dotenv";
 dotenv.config({ path: __dirname + "/.env" });
 
-const WALLET_DEPLOYER_PK = process.env.WALLET_DEPLOYER_PK;
+const COUNTER_DEPLOYER_PK = process.env.COUNTER_DEPLOYER_PK;
 const ALCHEMY_ID = process.env.ALCHEMY_ID;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 
@@ -38,84 +38,94 @@ const config: HardhatUserConfig = {
       },
     },
     alfajores: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 44787,
       url: "https://alfajores-forno.celo-testnet.org",
+    },
+    arbitrum: {
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
+      chainId: 42161,
+      url: `https://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_ID}`,
     },
     avalanche: {
       url: "https://api.avax.network/ext/bc/C/rpc",
       chainId: 43114,
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
     },
-    bsc: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+    bnb: {
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 56,
       url: "https://bsc-dataseed1.ninicoin.io/",
     },
     ethereum: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 1,
       url: `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_ID}`,
     },
     evmos: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 9001,
       url: "https://eth.bd.evmos.org:8545",
     },
     rinkeby: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 4,
       url: `https://eth-rinkeby.alchemyapi.io/v2/${ALCHEMY_ID}`,
     },
     gnosis: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 100,
       url: `https://rpc.gnosischain.com/`,
     },
     goerli: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 5,
       url: `https://eth-goerli.alchemyapi.io/v2/${ALCHEMY_ID}`,
     },
     arbitrumGoerli: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 421613,
       url: `https://arb-goerli.g.alchemy.com/v2/${ALCHEMY_ID}`,
     },
     kovan: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 42,
       url: `https://eth-kovan.alchemyapi.io/v2/${ALCHEMY_ID}`,
     },
     polygon: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 137,
       url: `https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_ID}`,
     },
     mumbai: {
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 80001,
       url: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_ID}`,
     },
     moonbeam: {
       url: "https://moonbeam.api.onfinality.io/public",
       chainId: 1284,
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
     },
     moonbeamAlpha: {
       url: "https://moonbeam-alpha.api.onfinality.io/public",
       chainId: 1287,
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
     },
     moonriver: {
       url: "https://moonriver-rpc.dwellir.com",
       chainId: 1285,
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
     },
     optimisticGoerli: {
       url: `https://opt-goerli.g.alchemy.com/v2/${ALCHEMY_ID}`,
       chainId: 420,
-      accounts: WALLET_DEPLOYER_PK ? [WALLET_DEPLOYER_PK] : [],
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
+    },
+    optimism: {
+      url: `https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_ID}`,
+      chainId: 10,
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
     },
   },
   verify: {
