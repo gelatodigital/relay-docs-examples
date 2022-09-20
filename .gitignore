@@ -30,6 +30,7 @@ dist
 
 # yarn
 yarn-error.log
+yarn.lock
 
 # VS Code
 .vscode
