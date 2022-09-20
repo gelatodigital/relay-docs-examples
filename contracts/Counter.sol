@@ -26,7 +26,7 @@ contract Counter is GelatoRelayContext {
 
         counter += 1;
 
-        // emitting an event for testing purposes
+        // Emitting an event for testing purposes
         emit IncrementCounter();
     }
 }
