@@ -6,3 +6,7 @@ export interface SyncFeeRequest {
   data: BytesLike;
   feeToken: string;
 }
+
+export interface RelayResponse {
+  taskId: string;
+}
