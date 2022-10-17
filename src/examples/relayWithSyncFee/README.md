@@ -153,6 +153,14 @@ contract MyDummyWallet is GelatoRelayContext {
 
 ```
 
+The first line imports `GelatoRelayContext` from our [relay-context](https://www.npmjs.com/package/@gelatonetwork/relay-context) package. To read in detail about this, please visit the [docs](https://docs.gelato.network/developer-products/gelato-relay/quick-start/relaywithsyncfee/relay-context-contracts). In brief, inheriting the `GelatoRelayContext` contract gives you access to information that Gelato appends to the end of your target payload, so that you can access important variables from within your target function during the relay call. These variables are:
+
+- address `feeCollector`: the address of Gelato's fee collector contract to which the relay fee should be paid to
+- address `feeToken`: the address of the token you have requested to pay in
+- uint256 `fee`: the fee amount to be paid to the `feeCollector` address.
+
+In case, you already possess the fee beforehand by querying our [fee oracle](https://docs.gelato.network/developer-products/gelato-relay/quick-start/gelatos-fee-oracle), you can inherit `GelatoRelayFeeCollector` (see the relevant page on the docs [here](https://docs.gelato.network/developer-products/gelato-relay/quick-start/relaywithsyncfee/relay-context-contracts#gelatorelayfeecollector)) instead.
+
 ## Building and Sending a Relay Request
 
 ### increment.ts

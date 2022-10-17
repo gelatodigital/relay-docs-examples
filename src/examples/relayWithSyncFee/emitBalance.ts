@@ -1,7 +1,7 @@
 // local imports
 import { SyncFeeRequest } from "../../types";
 import { getDeploymentAddress } from "../../utils";
-import { relayLogger } from "./relayLogger";
+import { relayLogger } from "./utils/relayLogger";
 
 // package imports
 import { GelatoRelaySDK } from "@gelatonetwork/relay-sdk";

@@ -1,5 +1,5 @@
-import { SyncFeeRequest, RelayResponse } from "../../types";
-import { getDeploymentAddress } from "../../utils";
+import { SyncFeeRequest, RelayResponse } from "../../../types";
+import { getDeploymentAddress } from "../../../utils";
 
 export const relayLogger = async (
   request: SyncFeeRequest,
