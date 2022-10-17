@@ -13,25 +13,3 @@ export const getDeploymentAddress = (contract: string): string => {
       throw new Error(`No address for contract: ${contract}`);
   }
 };
-
-export const getSupportedChainId = (network: string): number => {
-  switch (network) {
-    case "goerli":
-      return 5;
-    case "mumbai":
-      return 80001;
-    default:
-      throw new Error(`No support for chain: ${network}`);
-  }
-};
-
-export const getEtherscanURL = (network: string): string => {
-  switch (network) {
-    case "goerli":
-      return "https://goerli.etherscan.io/address";
-    case "mumbai":
-      return "https://mumbai.polygonscan.com/address";
-    default:
-      throw new Error(`No support for chain: ${network}`);
-  }
-};
