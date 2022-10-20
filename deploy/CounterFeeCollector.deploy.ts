@@ -5,22 +5,22 @@ import { sleep } from "../src/utils";
 
 const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   const { deploy } = deployments;
-  const { deployer, counterDeployer } = await getNamedAccounts();
+  const { deployer, neoCounterDeployer } = await getNamedAccounts();
 
   if (hre.network.name !== "hardhat") {
-    if (deployer !== counterDeployer) {
+    if (deployer !== neoCounterDeployer) {
       console.error(
-        `Wrong deployer: ${deployer}\n expected: ${counterDeployer}`
+        `Wrong deployer: ${deployer}\n expected: ${neoCounterDeployer}`
       );
       process.exit(1);
     }
     console.log(
-      `Deploying Counter to ${hre.network.name}. Hit ctrl + c to abort`
+      `Deploying CounterFeeCollector to ${hre.network.name}. Hit ctrl + c to abort`
     );
     await sleep(5000);
   }
 
-  await deploy("Counter", {
+  await deploy("CounterFeeCollector", {
     from: deployer,
     proxy: {
       proxyContract: "EIP173ProxyWithReceive",
@@ -32,6 +32,6 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 func.skip = async (hre: HardhatRuntimeEnvironment) => {
   return hre.network.name !== "hardhat";
 };
-func.tags = ["Counter"];
+func.tags = ["CounterFeeCollector"];
 
 export default func;

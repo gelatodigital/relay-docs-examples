@@ -10,7 +10,7 @@ We have deployed a simple counter contract to many networks, see [here](https://
 
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.16;
+pragma solidity 0.8.17;
 
 import { GelatoRelayContext } from "@gelatonetwork/relay-context/contracts/GelatoRelayContext.sol";
 
@@ -40,7 +40,7 @@ To demonstrate how to make your contract ERC-2771 compatible using OpenZeppelin'
 
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.16;
+pragma solidity 0.8.17;
 
 import { ERC2771Context } from "@openzeppelin/contracts/metatx/ERC2771Context.sol";
 
@@ -96,7 +96,7 @@ The `target` function `incrementContext` is very similar to `Counter.sol` but it
 
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.16;
+pragma solidity 0.8.17;
 
 import { GelatoRelayContext } from "@gelatonetwork/relay-context/contracts/GelatoRelayContext.sol";
 

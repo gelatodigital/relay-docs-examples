@@ -5,28 +5,26 @@ import { sleep } from "../src/utils";
 
 const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
   const { deploy } = deployments;
-  const { deployer, counterDeployer } = await getNamedAccounts();
+  const { deployer, neoCounterDeployer } = await getNamedAccounts();
 
   if (hre.network.name !== "hardhat") {
-    if (deployer !== counterDeployer) {
+    if (deployer !== neoCounterDeployer) {
       console.error(
-        `Wrong deployer: ${deployer}\n expected: ${counterDeployer}`
+        `Wrong deployer: ${deployer}\n expected: ${neoCounterDeployer}`
       );
       process.exit(1);
     }
     console.log(
-      `Deploying CounterERC2771 to ${hre.network.name}. Hit ctrl + c to abort`
+      `Deploying CounterRelayContext to ${hre.network.name}. Hit ctrl + c to abort`
     );
     await sleep(5000);
   }
-  const relayAddress = "0xaBcC9b596420A9E9172FD5938620E265a0f9Df92";
 
-  await deploy("CounterERC2771", {
+  await deploy("CounterRelayContext", {
     from: deployer,
     proxy: {
       proxyContract: "EIP173ProxyWithReceive",
     },
-    args: [relayAddress],
     log: true,
   });
 };
@@ -34,6 +32,6 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironment) => {
 func.skip = async (hre: HardhatRuntimeEnvironment) => {
   return hre.network.name !== "hardhat";
 };
-func.tags = ["Counter"];
+func.tags = ["CounterRelayContext"];
 
 export default func;
