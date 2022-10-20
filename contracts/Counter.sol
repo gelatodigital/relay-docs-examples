@@ -12,6 +12,7 @@ import {
 contract Counter is GelatoRelayContext {
     uint256 public counter;
 
+    event Balance(uint256 balance);
     event IncrementCounter();
 
     // `increment` is the target function to call
@@ -28,5 +29,9 @@ contract Counter is GelatoRelayContext {
 
         // Emitting an event for testing purposes
         emit IncrementCounter();
+    }
+
+    function counterBalance() external {
+        emit Balance(address(this).balance);
     }
 }

@@ -15,27 +15,16 @@ contract CounterERC2771 is ERC2771Context {
 
     event IncrementContextCounter(address _msgSender);
 
-    // a modifier which utilises `isTrustedForwarder` for security.
-    modifier onlyTrustedForwarder() {
-        require(
-            isTrustedForwarder(msg.sender),
-            "Only callable by Trusted Forwarder"
-        );
-        _;
-    }
-
     // Setting the trustedForwarder upon contract deployment
     //solhint-disable-next-line no-empty-blocks
     constructor(address trustedForwarder) ERC2771Context(trustedForwarder) {}
 
     // `incrementContext` is the target function to call
     // this function increments the counter mapped to the _msgSender
-    function incrementContext() external onlyTrustedForwarder {
-        address _msgSender = _msgSender();
-
-        contextCounter[_msgSender]++;
+    function incrementContext() external {
+        contextCounter[_msgSender()]++;
 
         // Emitting an event for testing purposes
-        emit IncrementContextCounter(_msgSender);
+        emit IncrementContextCounter(_msgSender());
     }
 }

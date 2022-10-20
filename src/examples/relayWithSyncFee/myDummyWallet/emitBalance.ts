@@ -1,7 +1,7 @@
 // local imports
-import { SyncFeeRequest } from "../../types";
-import { getDeploymentAddress } from "../../utils";
-import { relayLogger } from "./utils/relayLogger";
+import { SyncFeeRequest } from "../../../types";
+import { getDeploymentAddress } from "../../../utils";
+import { relayLogger } from "../utils/relayLogger";
 
 // package imports
 import { GelatoRelaySDK } from "@gelatonetwork/relay-sdk";
@@ -9,9 +9,7 @@ import { BytesLike } from "ethers";
 
 // this function builds the relay request object to send using GelatoRelaySDK
 // to call the `emitBalance` function on the myDummyWallet contract.
-// supported testnets:
-// "goerli", "mumbai"
-// example: ts-node src/examples/relayWithSyncFee/emitBalance.ts goerli
+// run with: ts-node src/examples/relayWithSyncFee/emitBalance.ts
 const buildEmitBalanceRequest = (): SyncFeeRequest => {
   // target contract address
   const myDummyWallet = getDeploymentAddress("myDummyWallet");

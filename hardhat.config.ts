@@ -77,6 +77,11 @@ const config: HardhatUserConfig = {
       chainId: 100,
       url: `https://rpc.gnosischain.com/`,
     },
+    fuji: {
+      url: "https://api.avax-test.network/ext/bc/C/rpc",
+      chainId: 43113,
+      accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
+    },
     goerli: {
       accounts: COUNTER_DEPLOYER_PK ? [COUNTER_DEPLOYER_PK] : [],
       chainId: 5,

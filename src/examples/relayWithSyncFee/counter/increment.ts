@@ -1,7 +1,7 @@
 // local imports
-import { SyncFeeRequest } from "../../types";
-import { getDeploymentAddress } from "../../utils";
-import { relayLogger } from "./utils/relayLogger";
+import { SyncFeeRequest } from "../../../types";
+import { getDeploymentAddress } from "../../../utils";
+import { relayLogger } from "../utils/relayLogger";
 import { GelatoRelaySDK } from "@gelatonetwork/relay-sdk";
 
 // package imports
@@ -9,10 +9,7 @@ import { BytesLike } from "ethers";
 
 // this function builds the relay request object to send using GelatoRelaySDK
 // to call the `increment` function on the counter contract.
-// argument: network name as a string
-// supported testnets:
-// "goerli", "mumbai"
-// example: ts-node src/examples/relayWithSyncFee/increment.ts goerli
+// run with: ts-node src/examples/relayWithSyncFee/increment.ts goerli
 const buildIncrementRequest = (): SyncFeeRequest => {
   // target contract address
   const counter = getDeploymentAddress("counter");

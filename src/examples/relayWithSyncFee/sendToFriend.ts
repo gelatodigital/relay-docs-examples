@@ -14,9 +14,7 @@ const ALCHEMY_ID = process.env.ALCHEMY_ID;
 
 // this function builds the relay request object to send using GelatoRelaySDK
 // to call the `sendToFriend` function on the myDummyWallet contract.
-// supported testnets:
-// "goerli", "mumbai"
-// example: ts-node src/examples/relayWithSyncFee/sendToFriend.ts goerli
+// run with: ts-node src/examples/relayWithSyncFee/sendToFriend.ts goerli
 const buildSendToFriendRequest = async (): Promise<SyncFeeRequest> => {
   // target contract address
   const myDummyWallet = getDeploymentAddress("myDummyWallet");
