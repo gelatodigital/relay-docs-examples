@@ -16,7 +16,7 @@ import {
 contract CounterRelayContext is GelatoRelayContext {
     uint256 public counter;
 
-    event IncrementCounter();
+    event IncrementCounter(uint256 newCounterValue);
 
     // this function increments a counter after paying Gelato successfully using the helper methods
     function increment() external onlyGelatoRelay {
@@ -24,7 +24,6 @@ contract CounterRelayContext is GelatoRelayContext {
         _transferRelayFee();
 
         counter++;
-
-        emit IncrementCounter();
+        emit IncrementCounter(counter);
     }
 }

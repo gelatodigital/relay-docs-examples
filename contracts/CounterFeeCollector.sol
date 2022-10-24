@@ -16,7 +16,7 @@ contract CounterFeeCollector is GelatoRelayFeeCollector {
     uint256 public counter;
 
     event GetBalance(uint256 balance);
-    event IncrementCounter();
+    event IncrementCounter(uint256 newCounterValue);
 
     // `increment` is the target function to call
     // this function increments the state variable `counter` by 1
@@ -30,7 +30,7 @@ contract CounterFeeCollector is GelatoRelayFeeCollector {
 
         counter++;
 
-        emit IncrementCounter();
+        emit IncrementCounter(counter);
     }
 
     function getBalance() external {

@@ -7,13 +7,13 @@ import { relayLogger } from "../utils/relayLogger";
 import { GelatoRelaySDK } from "@gelatonetwork/relay-sdk";
 import { BytesLike } from "ethers";
 
+// target contract address
+const myDummyWallet = getDeploymentAddress("MyDummyWallet");
+
 // this function builds the relay request object to send using GelatoRelaySDK
 // to call the `emitBalance` function on the myDummyWallet contract.
 // run with: ts-node src/examples/relayWithSyncFee/emitBalance.ts
 const buildEmitBalanceRequest = (): SyncFeeRequest => {
-  // target contract address
-  const myDummyWallet = getDeploymentAddress("myDummyWallet");
-
   const data = "0xa9cc0927"; // `emitBalance` function signature
   const feeToken = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"; // pay Gelato in native token
 
@@ -33,7 +33,7 @@ const sendRelayRequest = async () => {
 
   // using Gelato Relay SDK to send a relay request!
   const relayResponse = await GelatoRelaySDK.relayWithSyncFee(request);
-  relayLogger(request, relayResponse);
+  relayLogger(myDummyWallet, request, relayResponse);
 };
 
 sendRelayRequest();

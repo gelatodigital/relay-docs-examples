@@ -1,7 +1,7 @@
 import { SyncFeeRequest, RelayResponse } from "../../../types";
-import { getDeploymentAddress } from "../../../utils";
 
 export const relayLogger = async (
+  target: string,
   request: SyncFeeRequest,
   relayResponse: RelayResponse
 ) => {
@@ -31,10 +31,8 @@ export const relayLogger = async (
       "\n"
   );
 
-  const contract = getDeploymentAddress("counter");
-
   console.log("Click here to see your relayed message on-chain!: ");
-  console.log(`https://goerli.etherscan.io/address/${contract}/#events`);
+  console.log(`https://goerli.etherscan.io/address/${target}/#events`);
   console.log("\n");
   console.log("Command + double click on the links above if you are on MacOS!");
   console.log("\n");

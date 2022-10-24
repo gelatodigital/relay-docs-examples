@@ -7,13 +7,13 @@ import { GelatoRelaySDK } from "@gelatonetwork/relay-sdk";
 // package imports
 import { BytesLike } from "ethers";
 
+// target contract address
+const counter = getDeploymentAddress("CounterRelayContext");
+
 // this function builds the relay request object to send using GelatoRelaySDK
 // to call the `increment` function on the counter contract.
 // run with: ts-node src/examples/relayWithSyncFee/increment.ts goerli
 const buildIncrementRequest = (): SyncFeeRequest => {
-  // target contract address
-  const counter = getDeploymentAddress("counter");
-
   const data = "0xd09de08a"; // increment function signature
   const feeToken = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"; // pay Gelato in native token
 
@@ -30,7 +30,7 @@ const buildIncrementRequest = (): SyncFeeRequest => {
 const sendRelayRequest = async (request: SyncFeeRequest) => {
   // using Gelato Relay SDK to send a relay request!
   const relayResponse = await GelatoRelaySDK.relayWithSyncFee(request);
-  relayLogger(request, relayResponse);
+  relayLogger(counter, request, relayResponse);
 };
 
 const request = buildIncrementRequest();

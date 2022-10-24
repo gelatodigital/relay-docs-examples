@@ -1,7 +1,7 @@
 // local imports
-import { SyncFeeRequest } from "../../types";
-import { getDeploymentAddress } from "../../utils";
-import { relayLogger } from "./utils/relayLogger";
+import { SyncFeeRequest } from "../../../types";
+import { getDeploymentAddress } from "../../../utils";
+import { relayLogger } from "../utils/relayLogger";
 
 // package imports
 import { GelatoRelaySDK } from "@gelatonetwork/relay-sdk";
@@ -12,13 +12,13 @@ import * as dotenv from "dotenv";
 dotenv.config({ path: __dirname + "/.env" });
 const ALCHEMY_ID = process.env.ALCHEMY_ID;
 
+// target contract address
+const myDummyWallet = getDeploymentAddress("MyDummyWallet");
+
 // this function builds the relay request object to send using GelatoRelaySDK
 // to call the `sendToFriend` function on the myDummyWallet contract.
 // run with: ts-node src/examples/relayWithSyncFee/sendToFriend.ts goerli
 const buildSendToFriendRequest = async (): Promise<SyncFeeRequest> => {
-  // target contract address
-  const myDummyWallet = getDeploymentAddress("myDummyWallet");
-
   // using a human-readable ABI for generating the payload
   const abi = [
     "function sendToFriend(address _token, address _to, uint256 _amount)",
@@ -57,7 +57,7 @@ const sendRelayRequest = async () => {
 
   // using Gelato Relay SDK to send a relay request!
   const relayResponse = await GelatoRelaySDK.relayWithSyncFee(request);
-  relayLogger(request, relayResponse);
+  relayLogger(myDummyWallet, request, relayResponse);
 };
 
 sendRelayRequest();
