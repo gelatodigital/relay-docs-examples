@@ -11,6 +11,7 @@ import * as dotenv from "dotenv";
 dotenv.config({ path: __dirname + "/.env" });
 
 const DEV_PK = process.env.DEV_PK;
+const NEO_COUNTER_DEPLOYER_PK = process.env.NEO_COUNTER_DEPLOYER_PK;
 const ALCHEMY_ID = process.env.ALCHEMY_ID;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 
@@ -113,7 +114,7 @@ const config: HardhatUserConfig = {
     moonbeam: {
       url: "https://moonbeam.api.onfinality.io/public",
       chainId: 1284,
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: NEO_COUNTER_DEPLOYER_PK ? [NEO_COUNTER_DEPLOYER_PK] : [],
     },
     moonbeamAlpha: {
       url: "https://moonbeam-alpha.api.onfinality.io/public",
@@ -123,7 +124,7 @@ const config: HardhatUserConfig = {
     moonriver: {
       url: "https://moonriver-rpc.dwellir.com",
       chainId: 1285,
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: NEO_COUNTER_DEPLOYER_PK ? [NEO_COUNTER_DEPLOYER_PK] : [],
     },
     optimisticGoerli: {
       url: `https://opt-goerli.g.alchemy.com/v2/${ALCHEMY_ID}`,
@@ -133,7 +134,7 @@ const config: HardhatUserConfig = {
     optimism: {
       url: `https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_ID}`,
       chainId: 10,
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: NEO_COUNTER_DEPLOYER_PK ? [NEO_COUNTER_DEPLOYER_PK] : [],
     },
   },
   verify: {

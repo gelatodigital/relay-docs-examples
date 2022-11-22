@@ -20,6 +20,21 @@ contract CounterFeeCollector is GelatoRelayFeeCollector {
 
     // `increment` is the target function to call
     // this function increments the state variable `counter` by 1
+    function increment(uint256 _fee) external onlyGelatoRelay {
+        // Payment to Gelato
+        // NOTE: be very careful here!
+        // if you do not use the onlyGelatoRelay modifier,
+        // anyone could encode themselves as the fee collector
+        // in the low-level data and drain tokens from this contract.
+        payable(_getFeeCollector()).sendValue(_fee);
+
+        counter++;
+
+        emit IncrementCounter(counter);
+    }
+
+    // `increment` is the target function to call
+    // this function increments the state variable `counter` by 1
     function increment() external onlyGelatoRelay {
         // Payment to Gelato
         // NOTE: be very careful here!
