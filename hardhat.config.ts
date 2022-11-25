@@ -12,6 +12,7 @@ dotenv.config({ path: __dirname + "/.env" });
 
 const DEV_PK = process.env.DEV_PK;
 const NEO_COUNTER_DEPLOYER_PK = process.env.NEO_COUNTER_DEPLOYER_PK;
+const COUNTER_V0_DEPLOYER_PK = process.env.COUNTER_V0_DEPLOYER_PK;
 const ALCHEMY_ID = process.env.ALCHEMY_ID;
 const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
 
@@ -32,6 +33,9 @@ const config: HardhatUserConfig = {
     walletDeployer: {
       default: "0xD212b936929E0AE6510757Ef8C5c23FF2BAc3112",
     },
+    counterV0Deployer: {
+      default: "0xFFc8F2d0A8311481ad4cEfE6CB6Ef811f21Be4d1",
+    },
   },
 
   networks: {
@@ -42,27 +46,32 @@ const config: HardhatUserConfig = {
       },
     },
     alfajores: {
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
       chainId: 44787,
       url: "https://alfajores-forno.celo-testnet.org",
     },
     arbitrum: {
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
       chainId: 42161,
       url: `https://arb-mainnet.g.alchemy.com/v2/${ALCHEMY_ID}`,
     },
     avalanche: {
       url: "https://api.avax.network/ext/bc/C/rpc",
       chainId: 43114,
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
     },
     bnb: {
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: NEO_COUNTER_DEPLOYER_PK ? [NEO_COUNTER_DEPLOYER_PK] : [],
       chainId: 56,
       url: "https://bsc-dataseed1.ninicoin.io/",
     },
+    cronos: {
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
+      chainId: 25,
+      url: "https://evm.cronos.org/",
+    },
     ethereum: {
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: NEO_COUNTER_DEPLOYER_PK ? [NEO_COUNTER_DEPLOYER_PK] : [],
       chainId: 1,
       url: `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_ID}`,
     },
@@ -77,44 +86,44 @@ const config: HardhatUserConfig = {
       url: `https://eth-rinkeby.alchemyapi.io/v2/${ALCHEMY_ID}`,
     },
     gnosis: {
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
       chainId: 100,
       url: `https://rpc.gnosischain.com/`,
     },
     fuji: {
       url: "https://api.avax-test.network/ext/bc/C/rpc",
       chainId: 43113,
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
+    },
+    fantom: {
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
+      chainId: 250,
+      url: "https://rpc.ankr.com/fantom",
     },
     goerli: {
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
       chainId: 5,
       url: `https://eth-goerli.alchemyapi.io/v2/${ALCHEMY_ID}`,
     },
     arbitrumGoerli: {
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
       chainId: 421613,
       url: `https://arb-goerli.g.alchemy.com/v2/${ALCHEMY_ID}`,
     },
-    kovan: {
-      accounts: DEV_PK ? [DEV_PK] : [],
-      chainId: 42,
-      url: `https://eth-kovan.alchemyapi.io/v2/${ALCHEMY_ID}`,
-    },
     polygon: {
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: NEO_COUNTER_DEPLOYER_PK ? [NEO_COUNTER_DEPLOYER_PK] : [],
       chainId: 137,
       url: `https://polygon-mainnet.g.alchemy.com/v2/${ALCHEMY_ID}`,
     },
     mumbai: {
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
       chainId: 80001,
       url: `https://polygon-mumbai.g.alchemy.com/v2/${ALCHEMY_ID}`,
     },
     moonbeam: {
       url: "https://moonbeam.api.onfinality.io/public",
       chainId: 1284,
-      accounts: NEO_COUNTER_DEPLOYER_PK ? [NEO_COUNTER_DEPLOYER_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
     },
     moonbeamAlpha: {
       url: "https://moonbeam-alpha.api.onfinality.io/public",
@@ -124,17 +133,17 @@ const config: HardhatUserConfig = {
     moonriver: {
       url: "https://moonriver-rpc.dwellir.com",
       chainId: 1285,
-      accounts: NEO_COUNTER_DEPLOYER_PK ? [NEO_COUNTER_DEPLOYER_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
     },
     optimisticGoerli: {
       url: `https://opt-goerli.g.alchemy.com/v2/${ALCHEMY_ID}`,
       chainId: 420,
-      accounts: DEV_PK ? [DEV_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
     },
     optimism: {
       url: `https://opt-mainnet.g.alchemy.com/v2/${ALCHEMY_ID}`,
       chainId: 10,
-      accounts: NEO_COUNTER_DEPLOYER_PK ? [NEO_COUNTER_DEPLOYER_PK] : [],
+      accounts: COUNTER_V0_DEPLOYER_PK ? [COUNTER_V0_DEPLOYER_PK] : [],
     },
   },
   verify: {
